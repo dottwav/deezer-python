@@ -4,13 +4,13 @@ from typing import Any, ClassVar
 
 import requests
 
-from deezer.exceptions import (
-    DeezerErrorResponse,
-    DeezerHTTPError,
-    DeezerUnknownResource,
+from _deezer.exceptions import (
+    _deezerErrorResponse,
+    _deezerHTTPError,
+    _deezerUnknownResource,
 )
-from deezer.pagination import PaginatedList
-from deezer.resources import (
+from _deezer.pagination import PaginatedList
+from _deezer.resources import (
     Album,
     Artist,
     Chart,
@@ -28,22 +28,22 @@ from deezer.resources import (
 
 class Client:
     """
-    A client to retrieve some basic infos about Deezer resources.
+    A client to retrieve some basic infos about _deezer resources.
 
     Create a client instance with the given options. Options should
     be passed in to the constructor as kwargs.
 
-        >>> import deezer
-        >>> client = deezer.Client(app_id='foo', app_secret='bar')
+        >>> import _deezer
+        >>> client = _deezer.Client(app_id='foo', app_secret='bar')
 
     This client provides several methods to retrieve the content most
-    kinds of Deezer objects, based on their json structure.
+    kinds of _deezer objects, based on their json structure.
 
     Headers can be forced by using the ``headers`` kwarg.
     For example, use ``Accept-Language`` header to force the output language.
 
-        >>> import deezer
-        >>> client = deezer.Client(headers={'Accept-Language': 'fr'})
+        >>> import _deezer
+        >>> client = _deezer.Client(headers={'Accept-Language': 'fr'})
 
     :param app_id: application ID.
     :param app_secret: application secret.
@@ -88,14 +88,14 @@ class Client:
         paginate_list=False,
     ):
         """
-        Recursively convert dictionary to :class:`~deezer.Resource` object.
+        Recursively convert dictionary to :class:`~_deezer.Resource` object.
 
         :param item: the JSON response as dict.
         :param parent: A reference to the parent resource, to avoid fetching again.
         :param resource_type: The resource class to use as top level.
         :param resource_id: The resource id to use as top level.
         :param paginate_list: Whether to wrap list into a pagination object.
-        :returns: instance of :class:`~deezer.Resource`
+        :returns: instance of :class:`~_deezer.Resource`
         """
         if "data" in item:
             parsed_data = [
@@ -127,7 +127,7 @@ class Client:
         elif item.get("results") is True:
             return True
         else:
-            raise DeezerUnknownResource(f"Unable to find resource type for {result!r}")
+            raise _deezerUnknownResource(f"Unable to find resource type for {result!r}")
         assert object_class is not None  # noqa S101
         return object_class(self, result)
 
@@ -162,12 +162,12 @@ class Client:
         try:
             response.raise_for_status()
         except requests.HTTPError as exc:
-            raise DeezerHTTPError.from_http_error(exc) from exc
+            raise _deezerHTTPError.from_http_error(exc) from exc
         json_data = response.json()
         if not isinstance(json_data, dict):
             return json_data
         if "error" in json_data and json_data["error"]:
-            raise DeezerErrorResponse(json_data)
+            raise _deezerErrorResponse(json_data)
         return self._process_json(
             json_data,
             parent=parent,
@@ -183,7 +183,7 @@ class Client:
         """
         Get the album with the given ID.
 
-        :returns: an :class:`~deezer.Album` object
+        :returns: an :class:`~_deezer.Album` object
         """
         return self.request("GET", f"album/{album_id}")
 
@@ -191,7 +191,7 @@ class Client:
         """
         Get the artist with the given ID.
 
-        :returns: an :class:`~deezer.Artist` object
+        :returns: an :class:`~_deezer.Artist` object
         """
         return self.request("GET", f"artist/{artist_id}")
 
@@ -202,7 +202,7 @@ class Client:
         Combine charts of several resources in one endpoint.
 
         :param genre_id: the genre ID, default to `All` genre (genre_id = 0).
-        :returns: a :class:`~deezer.Chart` instance.
+        :returns: a :class:`~_deezer.Chart` instance.
         """
         return self.request(
             "GET", f"chart/{genre_id}", resource_type=Chart, resource_id=genre_id
@@ -213,7 +213,7 @@ class Client:
         Get top tracks for the given genre ID.
 
         :param genre_id: the genre ID, default to `All` genre (genre_id = 0).
-        :return: a list of :class:`~deezer.Track` instances.
+        :return: a list of :class:`~_deezer.Track` instances.
         """
         return self.request("GET", f"chart/{genre_id}/tracks")
 
@@ -222,7 +222,7 @@ class Client:
         Get top albums for the given genre ID.
 
         :param genre_id: the genre ID, default to `All` genre (genre_id = 0).
-        :return: a list of :class:`~deezer.Album` instances.
+        :return: a list of :class:`~_deezer.Album` instances.
         """
         return self.request("GET", f"chart/{genre_id}/albums")
 
@@ -231,7 +231,7 @@ class Client:
         Get top artists for the given genre ID.
 
         :param genre_id: the genre ID, default to `All` genre (genre_id = 0).
-        :return: a list of :class:`~deezer.Artist` instances.
+        :return: a list of :class:`~_deezer.Artist` instances.
         """
         return self.request("GET", f"chart/{genre_id}/artists")
 
@@ -240,7 +240,7 @@ class Client:
         Get top playlists for the given genre ID.
 
         :param genre_id: the genre ID, default to `All` genre (genre_id = 0).
-        :return: a list of :class:`~deezer.Playlist` instances.
+        :return: a list of :class:`~_deezer.Playlist` instances.
         """
         return self.request("GET", f"chart/{genre_id}/playlists")
 
@@ -249,7 +249,7 @@ class Client:
         Get top podcasts for the given genre ID.
 
         :param genre_id: the genre ID, default to `All` genre (genre_id = 0).
-        :return: a list of :class:`~deezer.Podcast` instances.
+        :return: a list of :class:`~_deezer.Podcast` instances.
         """
         return self.request("GET", f"chart/{genre_id}/podcasts")
 
@@ -257,7 +257,7 @@ class Client:
         """
         Get the editorial with the given ID.
 
-        :returns: a :class:`~deezer.Editorial` object.
+        :returns: a :class:`~_deezer.Editorial` object.
         """
         return self.request("GET", f"editorial/{editorial_id}")
 
@@ -265,8 +265,8 @@ class Client:
         """
         List editorials.
 
-        :returns: a :class:`~deezer.pagination.PaginatedList`
-                  of :class:`~deezer.Editorial` objects.
+        :returns: a :class:`~_deezer.pagination.PaginatedList`
+                  of :class:`~_deezer.Editorial` objects.
         """
         return self._get_paginated_list("editorial")
 
@@ -274,7 +274,7 @@ class Client:
         """
         Get the episode with the given ID.
 
-        :returns: a :class:`~deezer.Episode` object
+        :returns: a :class:`~_deezer.Episode` object
         """
         return self.request("GET", f"episode/{episode_id}")
 
@@ -282,7 +282,7 @@ class Client:
         """
         Get the genre with the given ID.
 
-        :returns: a :class:`~deezer.Genre` object
+        :returns: a :class:`~_deezer.Genre` object
         """
         return self.request("GET", f"genre/{genre_id}")
 
@@ -290,7 +290,7 @@ class Client:
         """
         List musical genres.
 
-        :return: a list of :class:`~deezer.Genre` instances
+        :return: a list of :class:`~_deezer.Genre` instances
         """
         return self.request("GET", "genre")
 
@@ -298,7 +298,7 @@ class Client:
         """
         Get the playlist with the given ID.
 
-        :returns: a :class:`~deezer.Playlist` object
+        :returns: a :class:`~_deezer.Playlist` object
         """
         return self.request("GET", f"playlist/{playlist_id}")
 
@@ -306,7 +306,7 @@ class Client:
         """
         Get the podcast with the given ID.
 
-        :returns: a :class:`~deezer.Podcast` object
+        :returns: a :class:`~_deezer.Podcast` object
         """
         return self.request("GET", f"podcast/{podcast_id}")
 
@@ -314,7 +314,7 @@ class Client:
         """
         Get the radio with the given ID.
 
-        :returns: a :class:`~deezer.Radio` object
+        :returns: a :class:`~_deezer.Radio` object
         """
         return self.request("GET", f"radio/{radio_id}")
 
@@ -322,7 +322,7 @@ class Client:
         """
         List radios.
 
-        :return: a list of :class:`~deezer.Radio` instances
+        :return: a list of :class:`~_deezer.Radio` instances
         """
         return self.request("GET", "radio")
 
@@ -330,8 +330,8 @@ class Client:
         """
         Get the top radios.
 
-        :returns: a :class:`~deezer.pagination.PaginatedList`
-                  of :class:`~deezer.Radio` objects.
+        :returns: a :class:`~_deezer.pagination.PaginatedList`
+                  of :class:`~_deezer.Radio` objects.
         """
         return self._get_paginated_list("radio/top")
 
@@ -339,7 +339,7 @@ class Client:
         """
         Get the track with the given ID.
 
-        :returns: a :class:`~deezer.Track` object
+        :returns: a :class:`~_deezer.Track` object
         """
         return self.request("GET", f"track/{track_id}")
 
@@ -347,7 +347,7 @@ class Client:
         """
         Get the user with the given ID.
 
-        :returns: a :class:`~deezer.User` object
+        :returns: a :class:`~_deezer.User` object
         """
         user_id_str = str(user_id) if user_id else "me"
         return self.request("GET", f"user/{user_id_str}")
@@ -356,8 +356,8 @@ class Client:
         """
         Get user's recommended tracks.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Track <deezer.Track>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Track <_deezer.Track>` instances
         """
         return PaginatedList(
             client=self, base_path="user/me/recommendations/tracks", **kwargs
@@ -367,8 +367,8 @@ class Client:
         """
         Get user's recommended albums.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Track <deezer.Album>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Track <_deezer.Album>` instances
         """
         return PaginatedList(
             client=self, base_path="user/me/recommendations/albums", **kwargs
@@ -378,8 +378,8 @@ class Client:
         """
         Get user's recommended artists.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Track <deezer.Artist>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Track <_deezer.Artist>` instances
         """
         return PaginatedList(
             client=self, base_path="user/me/recommendations/artists", **kwargs
@@ -389,8 +389,8 @@ class Client:
         """
         Get user's recommended playlist.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Track <deezer.Playlist>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Track <_deezer.Playlist>` instances
         """
         return PaginatedList(
             client=self, base_path="user/me/recommendations/playlists", **kwargs
@@ -400,8 +400,8 @@ class Client:
         """
         Get user's flow.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Track <deezer.Track>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Track <_deezer.Track>` instances
         """
         return PaginatedList(client=self, base_path="user/me/flow", **kwargs)
 
@@ -410,8 +410,8 @@ class Client:
         Get the favourites albums for the given user_id if provided or current user if not.
 
         :param user_id: the user ID to get favourites albums.
-        :returns: a :class:`~deezer.pagination.PaginatedList`
-                  of :class:`~deezer.Album` objects.
+        :returns: a :class:`~_deezer.pagination.PaginatedList`
+                  of :class:`~_deezer.Album` objects.
         """
         user_id_str = str(user_id) if user_id else "me"
         return self._get_paginated_list(f"user/{user_id_str}/albums")
@@ -439,8 +439,8 @@ class Client:
         Get the favourites artists for the given user_id if provided or current user if not.
 
         :param user_id: the user ID to get favourites artists.
-        :return: a :class:`~deezer.pagination.PaginatedList`
-                 of :class:`~deezer.Artist` instances.
+        :return: a :class:`~_deezer.pagination.PaginatedList`
+                 of :class:`~_deezer.Artist` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
         return self._get_paginated_list(f"user/{user_id_str}/artists")
@@ -468,8 +468,8 @@ class Client:
         Get the followers for the given user_id if provided or current user if not.
 
         :param user_id: the user ID to get followers.
-        :returns: a :class:`~deezer.pagination.PaginatedList`
-                 of :class:`~deezer.User` instances.
+        :returns: a :class:`~_deezer.pagination.PaginatedList`
+                 of :class:`~_deezer.User` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
         return self._get_paginated_list(f"user/{user_id_str}/followers")
@@ -479,8 +479,8 @@ class Client:
         Get the followings for the given user_id if provided or current user if not.
 
         :param user_id: the user ID to get followings.
-        :returns: a :class:`~deezer.pagination.PaginatedList`
-                 of :class:`~deezer.User` instances.
+        :returns: a :class:`~_deezer.pagination.PaginatedList`
+                 of :class:`~_deezer.User` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
         return self._get_paginated_list(f"user/{user_id_str}/followings")
@@ -507,8 +507,8 @@ class Client:
         """
         Returns a list of the recently played tracks for the current user.
 
-        :return: a :class:`~deezer.pagination.PaginatedList`
-                 of :class:`~deezer.Track` instances.
+        :return: a :class:`~_deezer.pagination.PaginatedList`
+                 of :class:`~_deezer.Track` instances.
         """
         return self._get_paginated_list("user/me/history")
 
@@ -517,8 +517,8 @@ class Client:
         Get the favourites tracks for the given user_id if provided or current user if not.
 
         :param user_id: the user ID to get favourites tracks.
-        :return: a :class:`~deezer.pagination.PaginatedList`
-                 of :class:`~deezer.Track` instances.
+        :return: a :class:`~_deezer.pagination.PaginatedList`
+                 of :class:`~_deezer.Track` instances.
         """
         user_id_str = str(user_id) if user_id else "me"
         return self._get_paginated_list(f"user/{user_id_str}/tracks")
@@ -630,7 +630,7 @@ class Client:
 
         :param query: the query to search for, this is directly passed as q query.
         :param strict: whether to disable fuzzy search and enable strict mode.
-        :param ordering: see Deezer API docs for possible values.
+        :param ordering: see _deezer API docs for possible values.
         :param artist: parameter for the advanced search feature.
         :param album: parameter for the advanced search feature.
         :param track: parameter for the advanced search feature.
@@ -639,7 +639,7 @@ class Client:
         :param dur_max: parameter for the advanced search feature.
         :param bpm_min: parameter for the advanced search feature.
         :param bpm_max: parameter for the advanced search feature.
-        :returns: a list of :class:`~deezer.Track` instances.
+        :returns: a list of :class:`~_deezer.Track` instances.
         """
         return self._search(
             "",
@@ -667,8 +667,8 @@ class Client:
 
         :param query: the query to search for, this is directly passed as q query.
         :param strict: whether to disable fuzzy search and enable strict mode.
-        :param ordering: see Deezer API docs for possible values.
-        :return: list of :class:`~deezer.Album` instances.
+        :param ordering: see _deezer API docs for possible values.
+        :return: list of :class:`~_deezer.Album` instances.
         """
         return self._search(
             path="album",
@@ -688,8 +688,8 @@ class Client:
 
         :param query: the query to search for, this is directly passed as q query.
         :param strict: whether to disable fuzzy search and enable strict mode.
-        :param ordering: see Deezer API docs for possible values.
-        :return: list of :class:`~deezer.Album` instances.
+        :param ordering: see _deezer API docs for possible values.
+        :return: list of :class:`~_deezer.Album` instances.
         """
         return self._search(
             path="artist",
@@ -709,8 +709,8 @@ class Client:
 
         :param query: the query to search for, this is directly passed as q query.
         :param strict: whether to disable fuzzy search and enable strict mode.
-        :param ordering: see Deezer API docs for possible values.
-        :return: list of :class:`~deezer.Playlist` instances.
+        :param ordering: see _deezer API docs for possible values.
+        :return: list of :class:`~_deezer.Playlist` instances.
         """
         return self._search(
             path="playlist",

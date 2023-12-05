@@ -144,7 +144,7 @@
       "contributions": ["code", "doc", "test"]
     }
   ],
-  "projectName": "deezer-python",
+  "projectName": "_deezer-python",
   "projectOwner": "browniebroke",
   "repoType": "github",
   "repoHost": "https://github.com",

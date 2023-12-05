@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class Track(Resource):
     """
-    To work with Deezer track objects.
+    To work with _deezer track objects.
 
-    Check the :deezer-api:`Deezer documentation <track>`
+    Check the :_deezer-api:`_deezer documentation <track>`
     for more details about each field.
     """
 
@@ -55,7 +55,7 @@ class Track(Resource):
         """
         Get the artist of the Track.
 
-        :returns: the :class:`Artist <deezer.Artist>` of the Album
+        :returns: the :class:`Artist <_deezer.Artist>` of the Album
         """
         return self.client.get_artist(self.artist.id)
 
@@ -63,6 +63,6 @@ class Track(Resource):
         """
         Get the album of the Track.
 
-        :returns: the :class:`Album <deezer.Album>` instance
+        :returns: the :class:`Album <_deezer.Album>` instance
         """
         return self.client.get_album(self.album.id)

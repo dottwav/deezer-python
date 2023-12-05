@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class Genre(Resource):
     """
-    To work with Deezer genre objects.
+    To work with _deezer genre objects.
 
-    Check the :deezer-api:`Deezer documentation <genre>`
+    Check the :_deezer-api:`_deezer documentation <genre>`
     for more details about each field.
     """
 
@@ -31,7 +31,7 @@ class Genre(Resource):
         """
         Get all artists for a genre.
 
-        :returns: list of :class:`Artist <deezer.Artist>` instances
+        :returns: list of :class:`Artist <_deezer.Artist>` instances
         """
         return self.get_relation("artists", **kwargs)
 
@@ -39,8 +39,8 @@ class Genre(Resource):
         """
         Get all podcasts for a genre.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Podcast <deezer.Podcast>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Podcast <_deezer.Podcast>` instances
         """
         return self.get_paginated_list("podcasts", **kwargs)
 
@@ -48,6 +48,6 @@ class Genre(Resource):
         """
         Get all radios for a genre.
 
-        :returns: list of :class:`Radio <deezer.Radio>` instances
+        :returns: list of :class:`Radio <_deezer.Radio>` instances
         """
         return self.get_relation("radios", **kwargs)

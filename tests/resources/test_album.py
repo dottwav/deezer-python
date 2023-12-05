@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-import deezer
+import _deezer
 
 pytestmark = pytest.mark.vcr
 
@@ -15,7 +15,7 @@ class TestAlbum:
         assert repr(album) == "<Album: Discovery>"
 
         artist = album.get_artist()
-        assert isinstance(artist, deezer.Artist)
+        assert isinstance(artist, _deezer.Artist)
         assert repr(artist) == "<Artist: Daft Punk>"
 
     def test_get_tracks(self, client):
@@ -23,9 +23,9 @@ class TestAlbum:
 
         # tests pagination
         tracks = album.get_tracks()
-        assert isinstance(tracks, deezer.PaginatedList)
+        assert isinstance(tracks, _deezer.PaginatedList)
         track = tracks[0]
-        assert isinstance(track, deezer.Track)
+        assert isinstance(track, _deezer.Track)
         assert repr(track) == "<Track: One More Time>"
         assert len(tracks) == 14
 
@@ -35,7 +35,7 @@ class TestAlbum:
         contributors = album.contributors
         assert isinstance(contributors, list)
         assert len(contributors) == 2
-        assert all(isinstance(c, deezer.Artist) for c in contributors)
+        assert all(isinstance(c, _deezer.Artist) for c in contributors)
         assert [c.id for c in contributors] == [123021, 6159602]
 
     def test_as_dict(self, client):

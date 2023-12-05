@@ -2,7 +2,7 @@
 
 # Resources
 
-A collection of Python classes modelling each type of content that is returned by the Deezer API.
+A collection of Python classes modelling each type of content that is returned by the _deezer API.
 
 ```{toctree}
 :maxdepth: 1

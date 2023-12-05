@@ -1,10 +1,10 @@
-# Deezer Python documentation
+# _deezer Python documentation
 
-Deezer-Python: a friendly wrapper around the [Deezer API](http://developers.deezer.com/api).
+_deezer-Python: a friendly wrapper around the [_deezer API](http://developers._deezer.com/api).
 
 ---
 
-**Source Code**: <a href="https://github.com/browniebroke/deezer-python" target="_blank">https://github.com/browniebroke/deezer-python </a>
+**Source Code**: <a href="https://github.com/browniebroke/_deezer-python" target="_blank">https://github.com/browniebroke/_deezer-python </a>
 
 ---
 

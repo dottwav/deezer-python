@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import TYPE_CHECKING, Generator, Iterable
 
 if TYPE_CHECKING:
-    from deezer import Resource
+    from _deezer import Resource
 
 
 def gen_ids(item_list: Iterable[int | Resource]) -> Generator[int, None, None]:

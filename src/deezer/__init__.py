@@ -1,6 +1,6 @@
-from deezer.client import Client
-from deezer.pagination import PaginatedList
-from deezer.resources import (
+from _deezer.client import Client
+from _deezer.pagination import PaginatedList
+from _deezer.resources import (
     Album,
     Artist,
     Chart,
@@ -33,4 +33,4 @@ __all__ = [
     "User",
 ]
 
-USER_AGENT = f"Deezer Python API Wrapper v{__version__}"
+USER_AGENT = f"_deezer Python API Wrapper v{__version__}"

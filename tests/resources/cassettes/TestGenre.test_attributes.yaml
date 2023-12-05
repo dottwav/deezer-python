@@ -24,7 +24,7 @@ interactions:
         Server: [Apache]
         Set-Cookie: [
             "dzr_uniq_id=dzr_uniq_id_fred510706cd44040e8bdf3ddb50fd7108ac0afc;
-            expires=Sun, 11-Aug-2019 12:39:46 GMT; Max-Age=15552000; path=/; domain=.deezer.com",
+            expires=Sun, 11-Aug-2019 12:39:46 GMT; Max-Age=15552000; path=/; domain=._deezer.com",
           ]
         Vary: [Accept-Encoding]
         X-Host: [blm-web-53]

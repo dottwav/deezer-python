@@ -3,5 +3,5 @@
 Pagination
 ----------
 
-.. autoclass:: deezer.PaginatedList
+.. autoclass:: _deezer.PaginatedList
     :members:

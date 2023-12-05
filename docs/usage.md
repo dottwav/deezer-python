@@ -2,10 +2,10 @@
 
 ## First steps
 
-To start calling the API, you first need to instantiate a {class}`Client <deezer.client.Client>`:
+To start calling the API, you first need to instantiate a {class}`Client <_deezer.client.Client>`:
 
 ```python
->>> client = deezer.Client()
+>>> client = _deezer.Client()
 ```
 
 From there, you can search for some terms:
@@ -21,9 +21,9 @@ From there, you can search for some terms:
  '...']>
 ```
 
-The above returned a lot of tracks, wrapped in a {class}`PaginatedList <deezer.PaginatedList>`, which is a list-like object (see the dedicated {ref}`page about pagination <pagination-guide>` for more details).
+The above returned a lot of tracks, wrapped in a {class}`PaginatedList <_deezer.PaginatedList>`, which is a list-like object (see the dedicated {ref}`page about pagination <pagination-guide>` for more details).
 
-If you wanted to search for artists instead, you may use the {meth}`Client.search_artists() <deezer.Client.search_artists>` method:
+If you wanted to search for artists instead, you may use the {meth}`Client.search_artists() <_deezer.Client.search_artists>` method:
 
 ```python
 >>> client.search_artists('Daft Punk')
@@ -38,7 +38,7 @@ If you wanted to search for artists instead, you may use the {meth}`Client.searc
 
 ## Main concepts
 
-As we have just seen above, the entry point is the {class}`Client <deezer.Client>` class, which gives access to a number of methods. The methods are attempting to map to the REST API endpoints from Deezer.
+As we have just seen above, the entry point is the {class}`Client <_deezer.Client>` class, which gives access to a number of methods. The methods are attempting to map to the REST API endpoints from _deezer.
 
 You may have noticed from the above examples, but depending on the endpoint that is being called, the methods will return various type of resources. All the resources are listed in the {ref}`resources reference page <resources-reference>`.
 
@@ -46,7 +46,7 @@ You may have noticed from the above examples, but depending on the endpoint that
 
 ### Getting a field about a resource
 
-When you ge a resource, you have access to all the fields that are in the REST API response. For example, all the fields presented in the documentation for [the track object](https://developers.deezer.com/api/track) are accessible as attribute on the {class}`Track <deezer.Track>` resource:
+When you ge a resource, you have access to all the fields that are in the REST API response. For example, all the fields presented in the documentation for [the track object](https://developers._deezer.com/api/track) are accessible as attribute on the {class}`Track <_deezer.Track>` resource:
 
 ```python
 >>> instant_crush
@@ -63,7 +63,7 @@ True
 
 As well as giving access to its own attributes, a resource also gives access to other related resources.
 
-For example, when you get an {class}`Artist <deezer.Artist>`, you may call one of the methods documented to get the artist's albums, then from an {class}`Album <deezer.Album>` get its tracks, and from a {class}`Track <deezer.Track>` you may go back to the {class}`Album <deezer.Album>` or the {class}`Artist <deezer.Artist>`.
+For example, when you get an {class}`Artist <_deezer.Artist>`, you may call one of the methods documented to get the artist's albums, then from an {class}`Album <_deezer.Album>` get its tracks, and from a {class}`Track <_deezer.Track>` you may go back to the {class}`Album <_deezer.Album>` or the {class}`Artist <_deezer.Artist>`.
 
 Let's try from the initial example:
 
@@ -102,7 +102,7 @@ You might have spotted the difference, though: attributes access are using the d
 
 #### N+1 API calls
 
-When traversing relations, the Deezer API returns a simplified version of the objects. For example, the [album tracks](https://developers.deezer.com/api/album/tracks) have fewer fields returned that when you get [a track](https://developers.deezer.com/api/track) directly and this applies to lot of related resources: podcast episodes, artist albums, ...
+When traversing relations, the _deezer API returns a simplified version of the objects. For example, the [album tracks](https://developers._deezer.com/api/album/tracks) have fewer fields returned that when you get [a track](https://developers._deezer.com/api/track) directly and this applies to lot of related resources: podcast episodes, artist albums, ...
 
 To mitigate this problem and make sure the resources being returned have all the documented attributes, the client might make additional API calls to get the full version of the resources. This happens lazily, when you access an attribute of the resource which wasn't returned yet. If you try to access an attribute that doesn't exist on the resource, you'll get a `AttributeError` without extra API calls.
 
@@ -132,7 +132,7 @@ Each resource has a `as_dict()` method to export its content as dictionary:
  'title_short': 'Instant Crush',
  'title_version': '',
  'isrc': 'USQX91300105',
- 'link': 'https://www.deezer.com/track/67238732',
+ 'link': 'https://www._deezer.com/track/67238732',
  'duration': 337,
  'track_position': 5,
  ...}
@@ -140,14 +140,14 @@ Each resource has a `as_dict()` method to export its content as dictionary:
 
 ## Authentication
 
-Deezer Python itself doesn't handle the authentication & authorization, but it accepts an API token. Authentication tokens are issued for a specific user using the OAuth 2.0 protocol. The protocol states that the user needs to grant to your application the permissions you need, and this happens in the browser, on the Deezer website, which then redirect users to your application.
+_deezer Python itself doesn't handle the authentication & authorization, but it accepts an API token. Authentication tokens are issued for a specific user using the OAuth 2.0 protocol. The protocol states that the user needs to grant to your application the permissions you need, and this happens in the browser, on the _deezer website, which then redirect users to your application.
 
-To integrate the OAuth flow in your application, we recommend looking at other libraries like [Python Social Auth](https://github.com/python-social-auth), which supports Deezer authentication.
+To integrate the OAuth flow in your application, we recommend looking at other libraries like [Python Social Auth](https://github.com/python-social-auth), which supports _deezer authentication.
 
-Once the OAuth2 flow is complete, Deezer should give you a token which can be passed to the {class}`Client <deezer.Client>` class:
+Once the OAuth2 flow is complete, _deezer should give you a token which can be passed to the {class}`Client <_deezer.Client>` class:
 
 ```python
-client = deezer.Client(access_token='your-super-secret-token')
+client = _deezer.Client(access_token='your-super-secret-token')
 ```
 
 From there, you should be able to perform authenticated requests.

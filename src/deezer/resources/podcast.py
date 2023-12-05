@@ -11,9 +11,9 @@ if TYPE_CHECKING:
 
 class Podcast(Resource):
     """
-    To work with Deezer podcast objects.
+    To work with _deezer podcast objects.
 
-    Check the :deezer-api:`Deezer documentation <podcast>`
+    Check the :_deezer-api:`_deezer documentation <podcast>`
     for more details about each field.
     """
 
@@ -34,7 +34,7 @@ class Podcast(Resource):
         """
         Get episodes from a podcast.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-                  of :class:`Episode <deezer.Episode>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+                  of :class:`Episode <_deezer.Episode>` instances
         """
         return self.get_paginated_list("episodes", **kwargs)

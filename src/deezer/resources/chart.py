@@ -15,9 +15,9 @@ if TYPE_CHECKING:
 
 class Chart(Resource):
     """
-    To work with Deezer chart objects.
+    To work with _deezer chart objects.
 
-    Check the :deezer-api:`Deezer documentation <chart>`
+    Check the :_deezer-api:`_deezer documentation <chart>`
     for more details about each field.
     """
 
@@ -34,8 +34,8 @@ class Chart(Resource):
         """
         Return the chart for tracks.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-        of :class:`Track <deezer.Track>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+        of :class:`Track <_deezer.Track>` instances
         """
         return self.get_paginated_list("tracks", **kwargs)
 
@@ -43,8 +43,8 @@ class Chart(Resource):
         """
         Return the chart for albums.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-        of :class:`Album <deezer.Album>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+        of :class:`Album <_deezer.Album>` instances
         """
         return self.get_paginated_list("albums", **kwargs)
 
@@ -52,8 +52,8 @@ class Chart(Resource):
         """
         Return the chart for artists.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-        of :class:`Artist <deezer.Artist>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+        of :class:`Artist <_deezer.Artist>` instances
         """
         return self.get_paginated_list("artists", **kwargs)
 
@@ -61,8 +61,8 @@ class Chart(Resource):
         """
         Return the chart for playlists.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-        of :class:`Playlist <deezer.Playlist>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+        of :class:`Playlist <_deezer.Playlist>` instances
         """
         return self.get_paginated_list("playlists", **kwargs)
 
@@ -70,7 +70,7 @@ class Chart(Resource):
         """
         Return the chart for podcasts.
 
-        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
-        of :class:`Podcast <deezer.Podcast>` instances
+        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
+        of :class:`Podcast <_deezer.Podcast>` instances
         """
         return self.get_paginated_list("podcasts", **kwargs)

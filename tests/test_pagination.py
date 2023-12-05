@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from deezer import Album, Artist, PaginatedList
+from _deezer import Album, Artist, PaginatedList
 
 pytestmark = pytest.mark.vcr
 

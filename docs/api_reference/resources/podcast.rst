@@ -1,6 +1,6 @@
 Podcast
 -------
 
-.. autoclass:: deezer.Podcast
+.. autoclass:: _deezer.Podcast
     :members:
     :undoc-members:

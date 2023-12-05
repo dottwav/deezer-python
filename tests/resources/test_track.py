@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-import deezer
+import _deezer
 
 pytestmark = pytest.mark.vcr
 
@@ -14,9 +14,9 @@ class TestTrack:
         artist = track.get_artist()
         album = track.get_album()
         assert hasattr(track, "title")
-        assert isinstance(track, deezer.Track)
-        assert isinstance(artist, deezer.Artist)
-        assert isinstance(album, deezer.Album)
+        assert isinstance(track, _deezer.Track)
+        assert isinstance(artist, _deezer.Artist)
+        assert isinstance(album, _deezer.Album)
         assert repr(track) == "<Track: Harder Better Faster Stronger>"
         assert repr(artist) == "<Artist: Daft Punk>"
         assert repr(album) == "<Album: Discovery>"
@@ -26,5 +26,5 @@ class TestTrack:
         contributors = track.contributors
         assert isinstance(contributors, list)
         assert len(contributors) == 2
-        assert all(isinstance(c, deezer.Artist) for c in contributors)
+        assert all(isinstance(c, _deezer.Artist) for c in contributors)
         assert [c.id for c in contributors] == [51204222, 288166]

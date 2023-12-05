@@ -10,9 +10,9 @@ if TYPE_CHECKING:
 
 class Radio(Resource):
     """
-    To work with Deezer radio objects.
+    To work with _deezer radio objects.
 
-    Check the :deezer-api:`Deezer documentation <radio>`
+    Check the :_deezer-api:`_deezer documentation <radio>`
     for more details about each field.
     """
 
@@ -34,6 +34,6 @@ class Radio(Resource):
 
         Note that this endpoint is NOT paginated.
 
-        :returns: a list of :class:`Track <deezer.Track>` instances.
+        :returns: a list of :class:`Track <_deezer.Track>` instances.
         """
         return self.get_relation("tracks")

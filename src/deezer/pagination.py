@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Generator, Generic, TypeVar, overload
 from urllib.parse import parse_qs, urlparse
 
-import deezer
+import _deezer
 
 ResourceType = TypeVar("ResourceType")
 REPR_OUTPUT_SIZE = 5
@@ -17,9 +17,9 @@ class PaginatedList(Generic[ResourceType]):
 
     def __init__(
         self,
-        client: deezer.Client,
+        client: _deezer.Client,
         base_path: str,
-        parent: deezer.Resource | None = None,
+        parent: _deezer.Resource | None = None,
         **params,
     ):
         self.__elements: list[ResourceType] = []
@@ -109,7 +109,7 @@ class PaginatedList(Generic[ResourceType]):
 
     @property
     def total(self) -> int:
-        """The total number of items in the list, mirroring what Deezer returns."""
+        """The total number of items in the list, mirroring what _deezer returns."""
         if self.__total is None:
             params = self.__base_params.copy()
             params["limit"] = 1

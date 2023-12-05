@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-import deezer
+import _deezer
 
 pytestmark = pytest.mark.vcr
 
@@ -10,7 +10,7 @@ pytestmark = pytest.mark.vcr
 class TestEpisode:
     def test_get_episode(self, client):
         episode = client.get_episode(343457312)
-        assert isinstance(episode, deezer.Episode)
+        assert isinstance(episode, _deezer.Episode)
         assert episode.title == "Stuart Hogg and the GOAT"
 
     def test_as_dict(self, client):
@@ -22,21 +22,21 @@ class TestEpisode:
 
     def test_access_inferable_fields(self, client):
         """Accessing a missing inferable field doesn't do any API calls."""
-        episode = deezer.Episode(
+        episode = _deezer.Episode(
             client,
             json={
                 "id": 343457312,
                 "type": "episode",
             },
         )
-        assert episode.link == "https://www.deezer.com/episode/343457312"
+        assert episode.link == "https://www._deezer.com/episode/343457312"
         assert episode.share == (
-            "https://www.deezer.com/episode/343457312?utm_source=deezer"
+            "https://www._deezer.com/episode/343457312?utm_source=_deezer"
             "&utm_content=episode-343457312&utm_medium=web"
         )
 
     def test_access_non_inferable_field(self, client):
-        episode = deezer.Episode(
+        episode = _deezer.Episode(
             client,
             json={
                 "id": 343457312,
@@ -46,7 +46,7 @@ class TestEpisode:
         assert episode.duration == 3254
 
     def test_add_bookmark(self, client_token):
-        episode = deezer.Episode(
+        episode = _deezer.Episode(
             client_token,
             json={
                 "id": 343457312,
@@ -57,7 +57,7 @@ class TestEpisode:
         assert result is True
 
     def test_remove_bookmark(self, client_token):
-        episode = deezer.Episode(
+        episode = _deezer.Episode(
             client_token,
             json={
                 "id": 343457312,

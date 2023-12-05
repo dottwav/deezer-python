@@ -1,7 +1,7 @@
 Chart
 -----
 
-.. autoclass:: deezer.Chart
+.. autoclass:: _deezer.Chart
     :members:
     :undoc-members:
     :exclude-members: id, type

@@ -1,13 +1,13 @@
 [tool.poetry]
-name = "deezer-python"
+name = "_deezer-python"
 version = "6.1.1"
-description = "A friendly wrapper library for the Deezer API"
+description = "A friendly wrapper library for the _deezer API"
 authors = ["Bruno Alla <alla.brunoo@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-keywords = ["deezer", "sdk", "client", "requests"]
-repository = "https://github.com/browniebroke/deezer-python"
-documentation = "https://deezer-python.readthedocs.io"
+keywords = ["_deezer", "sdk", "client", "requests"]
+repository = "https://github.com/browniebroke/_deezer-python"
+documentation = "https://_deezer-python.readthedocs.io"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
@@ -17,12 +17,12 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 packages = [
-    { include = "deezer", from = "src" },
+    { include = "_deezer", from = "src" },
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/browniebroke/deezer-python/issues"
-"Changelog" = "https://deezer-python.readthedocs.io/en/latest/changelog.html"
+"Bug Tracker" = "https://github.com/browniebroke/_deezer-python/issues"
+"Changelog" = "https://_deezer-python.readthedocs.io/en/latest/changelog.html"
 "Twitter" = "https://twitter.com/_BrunoAlla"
 "Mastodon" = "https://fosstodon.org/@browniebroke"
 
@@ -47,12 +47,12 @@ pytest-cov = "^4.0"
 pytest-mock = "^3.6"
 pytest-vcr = "^1.0"
 vcrpy = "^5.0.0"
-deezer-oauth-cli = "^1.0.0"
+_deezer-oauth-cli = "^1.0.0"
 
 [tool.semantic_release]
 version_toml = ["pyproject.toml:tool.poetry.version"]
 version_variables = [
-    "src/deezer/__init__.py:__version__",
+    "src/_deezer/__init__.py:__version__",
 ]
 build_command = "pip install poetry && poetry build"
 
@@ -73,12 +73,12 @@ match = "(?!main$)"
 prerelease = true
 
 [tool.pytest.ini_options]
-addopts = "-v -Wdefault --cov=deezer"
+addopts = "-v -Wdefault --cov=_deezer"
 pythonpath = ["src"]
 
 [tool.coverage.run]
 branch = true
-source = ["deezer"]
+source = ["_deezer"]
 
 [tool.coverage.report]
 ignore_errors = true
@@ -127,7 +127,7 @@ select = [
 "docs/conf.py" = ["D100"]
 
 [tool.ruff.isort]
-known-first-party = ["deezer"]
+known-first-party = ["_deezer"]
 
 [tool.mypy]
 # suppress errors about unsatisfied imports

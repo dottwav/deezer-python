@@ -1,7 +1,7 @@
 import pytest
 from environs import Env
 
-import deezer
+import _deezer
 
 env = Env()
 env.read_env()
@@ -10,7 +10,7 @@ env.read_env()
 @pytest.fixture()
 def client():
     """Create an unauthenticated client for tests."""
-    return deezer.Client(
+    return _deezer.Client(
         app_id="foo",
         app_secret="bar",  # noqa S106
         # This is to get human-readable response output in VCR cassettes
