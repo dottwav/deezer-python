@@ -35,14 +35,14 @@ The best way to send feedback is to file a ticket on [our issues page][gh-issues
 
 ## Get Started!
 
-Ready to contribute? Here's how to set up `_deezer-python` for local development.
+Ready to contribute? Here's how to set up `deezer-python` for local development.
 
 1. Fork the repo on GitHub.
 
 2. Clone your fork locally:
 
    ```shell
-   $ git clone git@github.com:your_name_here/_deezer-python.git
+   $ git clone git@github.com:your_name_here/deezer-python.git
    ```
 
 3. Install the dependencies with [Poetry](https://python-poetry.org)
@@ -91,12 +91,12 @@ Ready to contribute? Here's how to set up `_deezer-python` for local development
 
 ## Obtain an API token
 
-If you want to work on a feature that requires authentication, you'll need to obtain an API token to perform authenticated requests. You can do so using the [`_deezer-oauth-cli`](https://pypi.org/project/_deezer-oauth-cli/) package. It's a development dependency, so if you ran `poetry install`, you should already have it.
+If you want to work on a feature that requires authentication, you'll need to obtain an API token to perform authenticated requests. You can do so using the [`deezer-oauth-cli`](https://pypi.org/project/deezer-oauth-cli/) package. It's a development dependency, so if you ran `poetry install`, you should already have it.
 
-You'll need to have a dedicated app in the [_deezer developer portal](https://developers._deezer.com/myapps), create one with the following redirect URL after authentication: `http://localhost:8080/oauth/return`. Once created, grab the application ID and the secret key and call the CLI tool with them:
+You'll need to have a dedicated app in the [Deezer developer portal](https://developers.deezer.com/myapps), create one with the following redirect URL after authentication: `http://localhost:8080/oauth/return`. Once created, grab the application ID and the secret key and call the CLI tool with them:
 
 ```shell
-$ _deezer-oauth APP_ID SECRET_KEY
+$ deezer-oauth APP_ID SECRET_KEY
 ```
 
 Authorise the app in your browser. You should then should be redirected to a simple HTML page with your API token. The script also save the API token locally in the `.env` file. This is convenient to generate cassettes when writing new tests locally.
@@ -113,4 +113,4 @@ Feel free to open the pull request as soon as possible, but please be explicit i
 
 The deployment should be automated and can be triggered from the Semantic Release workflow in GitHub. The next version will be based on [the commit logs](https://python-semantic-release.readthedocs.io/en/latest/commit-log-parsing.html#commit-log-parsing). This is done by [python-semantic-release](https://python-semantic-release.readthedocs.io/en/latest/index.html) via a GitHub action.
 
-[gh-issues]: https://github.com/browniebroke/_deezer-python/issues
+[gh-issues]: https://github.com/browniebroke/deezer-python/issues

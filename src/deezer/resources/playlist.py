@@ -13,9 +13,9 @@ if TYPE_CHECKING:
 
 class Playlist(Resource):
     """
-    To work with _deezer playlist objects.
+    To work with Deezer playlist objects.
 
-    Check the :_deezer-api:`_deezer documentation <playlist>`
+    Check the :deezer-api:`Deezer documentation <playlist>`
     for more details about each field.
     """
 
@@ -44,8 +44,8 @@ class Playlist(Resource):
         """
         Get tracks from a playlist.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Track <_deezer.Track>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Track <deezer.Track>` instances
         """
         return self.get_paginated_list("tracks", **kwargs)
 
@@ -53,8 +53,8 @@ class Playlist(Resource):
         """
         Get fans from a playlist.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`User <_deezer.User>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`User <deezer.User>` instances
         """
         return self.get_paginated_list("fans", **kwargs)
 
@@ -70,7 +70,7 @@ class Playlist(Resource):
         """
         Add tracks to a playlist.
 
-        :param tracks: An iterable of :class:`Track <_deezer.Track>` instances
+        :param tracks: An iterable of :class:`Track <deezer.Track>` instances
                        or their IDs to add to the playlist
         :returns: a boolean that tells if the operation was successful
         """
@@ -83,7 +83,7 @@ class Playlist(Resource):
         """
         Delete tracks from a playlist.
 
-        :param tracks: An iterable of :class:`Track <_deezer.Track>` instances
+        :param tracks: An iterable of :class:`Track <deezer.Track>` instances
                        or their IDs to remove from the playlist.
         :returns: a boolean that tells if the operation was successful
         """
@@ -96,7 +96,7 @@ class Playlist(Resource):
         """
         Reorder the tracks of a playlist.
 
-        :param order: An iterable of :class:`Track <_deezer.Track>` instances
+        :param order: An iterable of :class:`Track <deezer.Track>` instances
                       or their IDs in the wished order.
         :returns: a boolean that tells if the operation was successful
         """

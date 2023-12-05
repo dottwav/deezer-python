@@ -28,7 +28,7 @@ interactions:
       - Apache
       Set-Cookie:
       - dzr_uniq_id=dzr_uniq_id_fr9bff60c8f2d435cf52f5787b759ec66b31db95; expires=Mon,
-        23-Mar-2020 21:04:30 GMT; Max-Age=15552000; path=/; domain=._deezer.com; secure
+        23-Mar-2020 21:04:30 GMT; Max-Age=15552000; path=/; domain=.deezer.com; secure
       Vary:
       - Accept-Encoding
       X-Host:

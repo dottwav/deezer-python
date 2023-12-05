@@ -18,7 +18,7 @@ interactions:
           STA"]
       Server: [Apache]
       Set-Cookie: ['dzr_uniq_id=dzr_uniq_id_frf6a59229fe8f19e7f760aa3051d1fc5e7d014e;
-          expires=Sun, 11-Aug-2019 12:23:48 GMT; Max-Age=15552000; path=/; domain=._deezer.com']
+          expires=Sun, 11-Aug-2019 12:23:48 GMT; Max-Age=15552000; path=/; domain=.deezer.com']
       Vary: [Accept-Encoding]
       X-Host: [blm-web-66]
     status: {code: 200, message: OK}

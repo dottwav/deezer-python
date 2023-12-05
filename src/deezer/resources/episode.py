@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 class Episode(Resource):
     """
-    To work with _deezer episode objects.
+    To work with Deezer episode objects.
 
-    Check the :_deezer-api:`_deezer documentation <episode>`
+    Check the :deezer-api:`Deezer documentation <episode>`
     for more details about each field.
     """
 
@@ -37,9 +37,9 @@ class Episode(Resource):
 
     def _infer_missing_field(self, item) -> Any:
         if item == "link":
-            return f"https://www._deezer.com/episode/{self.id}"
+            return f"https://www.deezer.com/episode/{self.id}"
         elif item == "share":
-            return f"{self.link}?utm_source=_deezer&utm_content=episode-{self.id}&utm_medium=web"
+            return f"{self.link}?utm_source=deezer&utm_content=episode-{self.id}&utm_medium=web"
         return super()._infer_missing_field(item)
 
     def add_bookmark(self, offset: int, **kwargs) -> bool:

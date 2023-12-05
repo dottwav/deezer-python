@@ -17,7 +17,7 @@ class Album(Resource):
     """
     To work with an album object.
 
-    Check the :_deezer-api:`_deezer documentation <album>`
+    Check the :deezer-api:`Deezer documentation <album>`
     for more details about each field.
     """
 
@@ -63,7 +63,7 @@ class Album(Resource):
         """
         Get the artist of the Album.
 
-        :returns: the :class:`Artist <_deezer.Artist>` of the Album
+        :returns: the :class:`Artist <deezer.Artist>` of the Album
         """
         return self.client.get_artist(self.artist.id)
 
@@ -71,7 +71,7 @@ class Album(Resource):
         """
         Get a list of album's tracks.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Track <_deezer.Track>`.
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Track <deezer.Track>`.
         """
         return self.get_paginated_list("tracks", **kwargs)

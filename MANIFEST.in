@@ -1,8 +1,8 @@
-recursive-include _deezer *.py
+recursive-include deezer *.py
 include *.txt
 include *.rst
 include *.md
-recursive-include _deezer *.json
+recursive-include deezer *.json
 recursive-include docs *.bat
 recursive-include docs *.placeholder
 recursive-include docs *.py

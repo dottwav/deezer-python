@@ -28,7 +28,7 @@ interactions:
           - Apache
         Set-Cookie:
           - dzr_uniq_id=dzr_uniq_id_fr5ad2b4704e780b7c1460d3eef66712868c42c2; expires=Mon,
-            15-Feb-2021 12:23:51 GMT; Max-Age=15552000; path=/;SameSite=None; domain=._deezer.com;
+            15-Feb-2021 12:23:51 GMT; Max-Age=15552000; path=/;SameSite=None; domain=.deezer.com;
             secure; HttpOnly
         Vary:
           - Accept-Encoding
@@ -89,7 +89,7 @@ interactions:
           - Apache
         Set-Cookie:
           - dzr_uniq_id=dzr_uniq_id_fr5ad2b4704e780b7c1460d3eef66712868c42c2; expires=Mon,
-            15-Feb-2021 12:23:51 GMT; Max-Age=15552000; path=/;SameSite=None; domain=._deezer.com;
+            15-Feb-2021 12:23:51 GMT; Max-Age=15552000; path=/;SameSite=None; domain=.deezer.com;
             secure; HttpOnly
         Transfer-Encoding:
           - chunked
@@ -152,7 +152,7 @@ interactions:
           - Apache
         Set-Cookie:
           - dzr_uniq_id=dzr_uniq_id_fr5ad2b4704e780b7c1460d3eef66712868c42c2; expires=Mon,
-            15-Feb-2021 12:23:51 GMT; Max-Age=15552000; path=/;SameSite=None; domain=._deezer.com;
+            15-Feb-2021 12:23:51 GMT; Max-Age=15552000; path=/;SameSite=None; domain=.deezer.com;
             secure; HttpOnly
         Transfer-Encoding:
           - chunked

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-import _deezer
+import deezer
 
 pytestmark = pytest.mark.vcr
 
@@ -16,7 +16,7 @@ class TestResource:
 
     def test_access_non_inferable_field_simplified_objet(self, client):
         """Fetch the full object when the missing field is not inferable."""
-        track = _deezer.Track(
+        track = deezer.Track(
             client,
             json={
                 "id": 3135556,
@@ -26,7 +26,7 @@ class TestResource:
         assert track.bpm == 123.4
 
     def test_access_no_infinite_fetch(self, client):
-        track = _deezer.Track(
+        track = deezer.Track(
             client,
             json={
                 "id": 3135556,
@@ -43,7 +43,7 @@ class TestResource:
 
     def test_field_not_found(self, client):
         """When field is missing an attribute error is raised without API calls."""
-        episode = _deezer.Episode(
+        episode = deezer.Episode(
             client,
             json={
                 "id": 343457312,

@@ -17,9 +17,9 @@ if TYPE_CHECKING:
 
 class User(Resource):
     """
-    To work with _deezer user objects.
+    To work with Deezer user objects.
 
-    Check the :_deezer-api:`_deezer documentation <user>`
+    Check the :deezer-api:`Deezer documentation <user>`
     for more details about each field.
     """
 
@@ -52,8 +52,8 @@ class User(Resource):
         """
         Get user's favorite albums.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Album <_deezer.Album>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Album <deezer.Album>` instances
         """
         return self.get_paginated_list("albums", **kwargs)
 
@@ -61,7 +61,7 @@ class User(Resource):
         """
         Add an album to user's favorite albums.
 
-        :param album: an :class:`~_deezer.Album` instance or its ID
+        :param album: an :class:`~deezer.Album` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.post_relation("albums", album_id=get_id(album))
@@ -70,7 +70,7 @@ class User(Resource):
         """
         Remove an album from user's favorite albums.
 
-        :param album: an :class:`~_deezer.Album` instance or its ID
+        :param album: an :class:`~deezer.Album` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.delete_relation("albums", album_id=get_id(album))
@@ -79,8 +79,8 @@ class User(Resource):
         """
         Get user's favorite tracks.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Track <_deezer.Track>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Track <deezer.Track>` instances
         """
         return self.get_paginated_list("tracks", **kwargs)
 
@@ -88,7 +88,7 @@ class User(Resource):
         """
         Add a track to user's favorite tracks.
 
-        :param track: a :class:`~_deezer.Track` instance or its ID
+        :param track: a :class:`~deezer.Track` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.post_relation("tracks", track_id=get_id(track))
@@ -97,7 +97,7 @@ class User(Resource):
         """
         Remove a track from user's favorite tracks.
 
-        :param track: a :class:`~_deezer.Track` instance or its ID
+        :param track: a :class:`~deezer.Track` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.delete_relation("tracks", track_id=get_id(track))
@@ -106,8 +106,8 @@ class User(Resource):
         """
         Get user's favorite artists.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Artist <_deezer.Artist>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Artist <deezer.Artist>` instances
         """
         return self.get_paginated_list("artists", **kwargs)
 
@@ -115,7 +115,7 @@ class User(Resource):
         """
         Add an artist to user's favorite artists.
 
-        :param artist: an :class:`~_deezer.Artist` instance or its ID
+        :param artist: an :class:`~deezer.Artist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.post_relation("artists", artist_id=get_id(artist))
@@ -124,7 +124,7 @@ class User(Resource):
         """
         Remove an artist from user's favorite artists.
 
-        :param artist: an :class:`~_deezer.Artist` instance or its ID
+        :param artist: an :class:`~deezer.Artist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.delete_relation("artists", artist_id=get_id(artist))
@@ -133,8 +133,8 @@ class User(Resource):
         """
         Get user's followers.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`User <_deezer.User>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`User <deezer.User>` instances
         """
         return self.get_paginated_list("followers", **kwargs)
 
@@ -142,8 +142,8 @@ class User(Resource):
         """
         Get user's followings.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`User <_deezer.User>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`User <deezer.User>` instances
         """
         return self.get_paginated_list("followings", **kwargs)
 
@@ -151,7 +151,7 @@ class User(Resource):
         """
         Follow a user.
 
-        :param user: a :class:`~_deezer.User` instance or its ID
+        :param user: a :class:`~deezer.User` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.post_relation("followings", user_id=get_id(user))
@@ -160,7 +160,7 @@ class User(Resource):
         """
         Unfollow a user.
 
-        :param user: a :class:`~_deezer.User` instance or its ID
+        :param user: a :class:`~deezer.User` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.delete_relation("followings", user_id=get_id(user))
@@ -169,8 +169,8 @@ class User(Resource):
         """
         Get user's public playlists.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Playlist <_deezer.Playlist>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Playlist <deezer.Playlist>` instances
         """
         return self.get_paginated_list("playlists", **kwargs)
 
@@ -178,7 +178,7 @@ class User(Resource):
         """
         Add a playlist to user's public playlists.
 
-        :param playlist: a :class:`~_deezer.Playlist` instance or its ID
+        :param playlist: a :class:`~deezer.Playlist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.post_relation("playlists", playlist_id=get_id(playlist))
@@ -187,7 +187,7 @@ class User(Resource):
         """
         Remove a playlist from user's public playlists.
 
-        :param playlist: a :class:`~_deezer.Playlist` instance or its ID
+        :param playlist: a :class:`~deezer.Playlist` instance or its ID
         :returns: a boolean that tells if the operation was successful
         """
         return self.delete_relation("playlists", playlist_id=get_id(playlist))

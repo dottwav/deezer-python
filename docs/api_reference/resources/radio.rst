@@ -1,6 +1,6 @@
 Radio
 -----
 
-.. autoclass:: _deezer.Radio
+.. autoclass:: deezer.Radio
     :members:
     :undoc-members:

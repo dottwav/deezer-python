@@ -13,7 +13,7 @@ interactions:
         {
           string:
             '{"id":23261,"title":"Telegraph Classical","description":"Telegraph
-            Classical","share":"https:\/\/www._deezer.com\/mixes\/genre\/23261?utm_source=_deezer&utm_content=mixes-genre-23261&utm_term=0_1549975186&utm_medium=web","picture":"https:\/\/api.deezer.com\/radio\/23261\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/1000x1000-000000-80-0-0.jpg","tracklist":"https:\/\/api.deezer.com\/radio\/23261\/tracks","type":"radio"}',
+            Classical","share":"https:\/\/www.deezer.com\/mixes\/genre\/23261?utm_source=deezer&utm_content=mixes-genre-23261&utm_term=0_1549975186&utm_medium=web","picture":"https:\/\/api.deezer.com\/radio\/23261\/image","picture_small":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/56x56-000000-80-0-0.jpg","picture_medium":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/250x250-000000-80-0-0.jpg","picture_big":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/500x500-000000-80-0-0.jpg","picture_xl":"https:\/\/e-cdns-images.dzcdn.net\/images\/misc\/aad5b7e9ecd6e72e6171c9e65ddf150d\/1000x1000-000000-80-0-0.jpg","tracklist":"https:\/\/api.deezer.com\/radio\/23261\/tracks","type":"radio"}',
         }
       headers:
         Content-Length: ["857"]
@@ -26,7 +26,7 @@ interactions:
         Server: [Apache]
         Set-Cookie: [
             "dzr_uniq_id=dzr_uniq_id_fra686a3da0c1a4018414f369f27dc87b06d6386;
-            expires=Sun, 11-Aug-2019 12:39:46 GMT; Max-Age=15552000; path=/; domain=._deezer.com",
+            expires=Sun, 11-Aug-2019 12:39:46 GMT; Max-Age=15552000; path=/; domain=.deezer.com",
           ]
         Vary: [Accept-Encoding]
         X-Host: [blm-web-118]

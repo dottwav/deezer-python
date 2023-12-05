@@ -28,7 +28,7 @@ interactions:
       - Apache
       Set-Cookie:
       - dzr_uniq_id=dzr_uniq_id_fra50c22608ba89c514271f03f4a4c885f786f91; expires=Mon,
-        23-Mar-2020 21:04:30 GMT; Max-Age=15552000; path=/; domain=._deezer.com; secure
+        23-Mar-2020 21:04:30 GMT; Max-Age=15552000; path=/; domain=.deezer.com; secure
       X-Host:
       - blm-web-15
     status:

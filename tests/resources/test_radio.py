@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-import _deezer
+import deezer
 
 pytestmark = pytest.mark.vcr
 
@@ -14,7 +14,7 @@ class TestRadio:
 
     def test_attributes(self, radio):
         assert hasattr(radio, "title")
-        assert isinstance(radio, _deezer.Radio)
+        assert isinstance(radio, deezer.Radio)
         assert repr(radio) == "<Radio: Telegraph Classical>"
 
     def test_get_tracks(self, radio):
@@ -22,7 +22,7 @@ class TestRadio:
         assert isinstance(tracks, list)
         assert len(tracks) == 25
         track = tracks[0]
-        assert isinstance(track, _deezer.Track)
+        assert isinstance(track, deezer.Track)
         assert (
             repr(track)
             == '<Track: Mozart: Piano Concerto No. 9 in E-Flat Major, K. 271 "Jeunehomme": I. Allegro>'

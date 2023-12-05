@@ -3,27 +3,27 @@ from __future__ import annotations
 import pytest
 import requests
 
-from _deezer.exceptions import (
-    _deezerForbiddenError,
-    _deezerHTTPError,
-    _deezerNotFoundError,
-    _deezerRetryableHTTPError,
+from deezer.exceptions import (
+    DeezerForbiddenError,
+    DeezerHTTPError,
+    DeezerNotFoundError,
+    DeezerRetryableHTTPError,
 )
 
 
 @pytest.mark.parametrize(
     ("status_code", "expected_exception"),
     [
-        (403, _deezerForbiddenError),
-        (404, _deezerNotFoundError),
-        (418, _deezerHTTPError),
-        (502, _deezerRetryableHTTPError),
+        (403, DeezerForbiddenError),
+        (404, DeezerNotFoundError),
+        (418, DeezerHTTPError),
+        (502, DeezerRetryableHTTPError),
     ],
 )
-def test__deezer_http_error(status_code, expected_exception):
+def test_deezer_http_error(status_code, expected_exception):
     response = requests.Response()
     response.status_code = status_code
     http_error = requests.HTTPError(response=response)
 
-    exc = _deezerHTTPError.from_http_error(http_error)
+    exc = DeezerHTTPError.from_http_error(http_error)
     assert isinstance(exc, expected_exception)

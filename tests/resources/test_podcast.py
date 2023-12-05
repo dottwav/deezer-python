@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-import _deezer
+import deezer
 
 pytestmark = pytest.mark.vcr
 
@@ -12,8 +12,8 @@ class TestPodcast:
         podcast = client.get_podcast(699612)
 
         episodes = podcast.get_episodes()
-        assert isinstance(episodes, _deezer.PaginatedList)
+        assert isinstance(episodes, deezer.PaginatedList)
         episode = episodes[0]
-        assert isinstance(episode, _deezer.Episode)
+        assert isinstance(episode, deezer.Episode)
         assert episode.title == "Episode 9: Follow the money"
         assert len(episodes) == 12

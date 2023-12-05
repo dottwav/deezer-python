@@ -2,7 +2,7 @@
 
 # Pagination
 
-For endpoints returning a paginated response, the list of items are wrapped in a {class}`PaginatedList <_deezer.PaginatedList>` class which makes working with pagination more Pythonic while doing the necessary API calls transparently.
+For endpoints returning a paginated response, the list of items are wrapped in a {class}`PaginatedList <deezer.PaginatedList>` class which makes working with pagination more Pythonic while doing the necessary API calls transparently.
 
 ## Iterating over elements
 
@@ -41,7 +41,7 @@ Be mindful of that when writing your code otherwise you'll consume your API quot
 
 ## Total number
 
-If you want to know the total number of items in the list, you can either use the `total` property, which is mirroring what's returned by _deezer, or use the more Pythonic `len()` built-in:
+If you want to know the total number of items in the list, you can either use the `total` property, which is mirroring what's returned by Deezer, or use the more Pythonic `len()` built-in:
 
 ```python
 # total property
@@ -58,7 +58,7 @@ You can also access elements by index:
 second_album = artist_albums[1]
 ```
 
-Beware that accessing a large index may produce some extra network calls to the _deezer API as pages preceding the given index will be fetched. For example, assuming the page size is 25, this will perform 5 API calls:
+Beware that accessing a large index may produce some extra network calls to the Deezer API as pages preceding the given index will be fetched. For example, assuming the page size is 25, this will perform 5 API calls:
 
 ```python
 artist_albums[110]
@@ -84,4 +84,4 @@ artist_albums[5:]
 artist_albums[2:10:2]
 ```
 
-As with the rest, not providing an end, or providing a large value as end may produce extra network calls to the _deezer API. Like indexing, negative values aren't supported at the moment.
+As with the rest, not providing an end, or providing a large value as end may produce extra network calls to the Deezer API. Like indexing, negative values aren't supported at the moment.

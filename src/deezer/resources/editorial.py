@@ -12,9 +12,9 @@ if TYPE_CHECKING:
 
 class Editorial(Resource):
     """
-    To work with _deezer editorial objects.
+    To work with Deezer editorial objects.
 
-    Check the :_deezer-api:`_deezer documentation <editorial>`
+    Check the :deezer-api:`Deezer documentation <editorial>`
     for more details about each field.
     """
 
@@ -28,9 +28,9 @@ class Editorial(Resource):
 
     def get_selection(self, **kwargs) -> list[Album]:
         """
-        Get a list of albums selected every week by the _deezer Team.
+        Get a list of albums selected every week by the Deezer Team.
 
-        :returns: a list of :class:`Album <_deezer.Album>` instances
+        :returns: a list of :class:`Album <deezer.Album>` instances
         """
         return self.get_relation("selection", **kwargs)
 
@@ -38,7 +38,7 @@ class Editorial(Resource):
         """
         Get top charts for tracks, albums, artists and playlists.
 
-        :returns: a :class:`~_deezer.Chart` instance
+        :returns: a :class:`~deezer.Chart` instance
         """
         return self.get_relation("charts", resource_type=Chart, **kwargs)
 
@@ -46,7 +46,7 @@ class Editorial(Resource):
         """
         Get the new releases per genre for the current country.
 
-        :returns: a :class:`PaginatedList <_deezer.PaginatedList>`
-                  of :class:`Album <_deezer.Album>` instances
+        :returns: a :class:`PaginatedList <deezer.PaginatedList>`
+                  of :class:`Album <deezer.Album>` instances
         """
         return self.get_paginated_list("releases", **kwargs)

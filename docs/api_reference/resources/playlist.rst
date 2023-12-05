@@ -1,6 +1,6 @@
 Playlist
 --------
 
-.. autoclass:: _deezer.Playlist
+.. autoclass:: deezer.Playlist
     :members:
     :undoc-members:
